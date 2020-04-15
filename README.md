@@ -62,10 +62,17 @@ The primary outputs are .model file that stores the cluster model and .pkl file 
 >>> gap_filled, gap_filled_std = gf.gap_fill_pixel(ts_y, training_data, labels, centroids)
 ```
 
+
 ## Installing
 System requirements
 * python3-dev
 * python-virtualenv
+
 It's highly recommended to do all your development & testing in anaconda virtual environment.
 
-
+Required modules
+* numpy
+* sklearn
+* pickle
+* gdal
+* multiprocessing
