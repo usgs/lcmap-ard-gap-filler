@@ -17,6 +17,8 @@ The recently released Landsat analysis ready data (ARD) over the United States p
 
 
 ## Usage
+A typical workflow is 1) download the time series image stack, 2) generate training data, 3) fill time series with data gaps.
+
 ### Generate training data
 The primary inputs are acquisition dates of images and the image stack as 3d array (n_rows, n_columns, n_timesteps).
 
