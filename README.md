@@ -11,15 +11,16 @@ neither the USGS nor the U.S. Government shall be held liable for any damages
 resulting from the authorized or unauthorized use of the software.
 
 ## Description
-This is the source code of "Gap fill of land surface temperature and reflectance products in Landsat analysis ready data" published in Remote Sensing.
+This is the source code of "Zhou Q, Xian G, Shi H. Gap Fill of Land Surface Temperature and Reflectance Products in Landsat Analysis Ready Data. Remote Sensing. 2020 Jan;12(7):1192."
 
 The recently released Landsat analysis ready data (ARD) over the United States provides the opportunity to investigate landscape dynamics using dense time series observations at 30-m resolution. However, the dataset often contains data gaps (or missing data) because of cloud contamination or data acquisition strategy, which result in different capabilities for seasonality modeling. We present a new algorithm that focuses on data gap filling using clear observations from orbit overlap regions. Multiple linear regression models were established for each pixel time series to estimate stable predictions and uncertainties. The model's training data came from stratified random samples based on the time series similarity between the pixel and data from the overlap regions.
 
 
 ## Usage
 ### Generate training data
-The primary inputs are acquisition dates of images and the image stack as 3d array (n_rows, n_columns, n_timesteps)
-The primary outputs are .model file that stores the cluster model and .pkl file that contains a set of training data.
+The primary inputs are acquisition dates of images and the image stack as 3d array (n_rows, n_columns, n_timesteps).
+
+The outputs are .model file that stores the cluster model and .pkl file that contains a set of training data.
 ```python
 >>> import gap_fill_ard as gfa
 >>> 
@@ -71,8 +72,7 @@ System requirements
 It's highly recommended to do all your development & testing in anaconda virtual environment.
 
 Required modules
-* numpy
-* sklearn
-* pickle
-* gdal
-* multiprocessing
+* numpy>=1.10.0
+* scikit-learn>=0.18
+* gdal>=3.0.1
+* multiprocessing>=0.70.8
