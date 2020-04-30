@@ -21,8 +21,6 @@ handler.setFormatter(formatter)
 log.addHandler(handler)
 log.setLevel(logging.DEBUG)
 
-#############################From: Kelcy - SR-stuff.ipynb############################################
-###Source: https://github.com/USGS-EROS/lcmap-pyccd/blob/develop/ccd/models/lasso.py
 def coefficient_matrix(dates, avg_days_yr=365.25, num_coefficients=8):
     """
     Fourier transform function to be used for the matrix of inputs for
@@ -32,6 +30,8 @@ def coefficient_matrix(dates, avg_days_yr=365.25, num_coefficients=8):
         num_coefficients: how many coefficients to use to build the matrix
     Returns:
         Populated numpy array with coefficient values
+        
+    Original author: Kelcy Smith
     """
     w = 2 * np.pi / avg_days_yr
 
