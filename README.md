@@ -15,6 +15,7 @@ This is the source code of "Zhou Q, Xian G, Shi H. Gap Fill of Land Surface Temp
 
 The recently released Landsat analysis ready data (ARD) over the United States provides the opportunity to investigate landscape dynamics using dense time series observations at 30-m resolution. However, the dataset often contains data gaps (or missing data) because of cloud contamination or data acquisition strategy, which result in different capabilities for seasonality modeling. We present a new algorithm that focuses on data gap filling using clear observations from orbit overlap regions. Multiple linear regression models were established for each pixel time series to estimate stable predictions and uncertainties. The model's training data came from stratified random samples based on the time series similarity between the pixel and data from the overlap regions.
 
+<image src="image_abstract.png">
 
 ## Usage
 A typical workflow is 1) download the time series image stack, 2) generate training data, 3) fill time series with data gaps.
