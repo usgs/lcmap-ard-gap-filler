@@ -121,7 +121,7 @@ def save_cluster(ts, out_name, n_clusters=20, n_cpu=-1, method='KMean'):
     return True
 
 
-def gather_training(acq_datelist, img_stack, outDir=None, total_size=200000, save_slice=True):
+def gather_training(acq_datelist, img_stack, outDir=None, base_name='', total_size=200000, save_slice=True):
     """
     This function generates training data from image stacks.
 
@@ -135,6 +135,8 @@ def gather_training(acq_datelist, img_stack, outDir=None, total_size=200000, sav
             cloud contaminated value should be set as 0 or negative.
     outDir: String
             Specification of output location.
+    base_name: String
+            Specification of prefix of output file. The output file will look like: basename_data.pkl and basename_model.model
     total_size: int
             For time cost optimization, use only subset of overlap time sereies as training data.
             Set -1 to use all.
@@ -164,7 +166,7 @@ def gather_training(acq_datelist, img_stack, outDir=None, total_size=200000, sav
     training_data_fill = lasso_fill(training_data.index.values, training_data.values.T)
     training_data = pd.DataFrame(training_data_fill.T, index=acq_datelist)
 
-    outname = os.path.join(outDir, 'training_file')
+    outname = os.path.join(outDir, base_name)
     training_data.to_pickle('{}_data.pkl'.format(outname))
     save_cluster(training_data.values.T, '{}_model.model'.format(outname))
 
