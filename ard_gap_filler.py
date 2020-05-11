@@ -149,6 +149,7 @@ def gather_training(acq_datelist, img_stack, outDir=None, base_name='', total_si
     hist, bins = np.histogram(obs_clear_count, bins=range(np.max(obs_clear_count)))
 
     overlap_thesh = bins[find_lastValley(hist)]
+    overlap_thesh = np.max(overlap_thesh, 21) # requires at least 21 clear observations in the training data
     print('Valley threshold: ', overlap_thesh)
     if max(bins) < overlap_thesh:
         print('Can not find enough clear observations (> 21)')
